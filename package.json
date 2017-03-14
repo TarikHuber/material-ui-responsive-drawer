@@ -37,7 +37,10 @@
   "homepage": "https://github.com/TarikHuber/material-ui-responsive-drawer#readme",
   "license": "MIT",
   "keywords": [
-    "react-component"
+    "material-ui",
+    "react-redux",
+    "responsive",
+    "drawer"
   ],
   "directories": {
     "test": "tests"
