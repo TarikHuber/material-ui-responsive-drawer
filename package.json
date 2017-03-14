@@ -1,6 +1,6 @@
 {
   "name": "material-ui-responsive-drawer",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "material-ui-responsive-drawer React component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -34,12 +34,19 @@
     "react-dom": "^15.4.2"
   },
   "author": "Tarik Huber <huber.tarik@gmail.com> (https://github.com/TarikHuber)",
-  "homepage": "",
+  "homepage": "https://github.com/TarikHuber/material-ui-responsive-drawer#readme",
   "license": "MIT",
   "keywords": [
     "react-component"
   ],
   "directories": {
     "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TarikHuber/material-ui-responsive-drawer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TarikHuber/material-ui-responsive-drawer/issues"
   }
 }
