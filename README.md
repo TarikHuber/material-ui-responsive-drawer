@@ -172,9 +172,9 @@ Both of them are just containers in witch you can put all your other application
 The ResponsiveDrawer has the same properties as the [Material-UI Drawer](http://www.material-ui.com/#/components/drawer).
 
 There are some properties that shuld always be the same in this two components:
-*width - if the `width of the draver is set to a specific value the `width` of the BodyContainer should be set to the same to avoid overlaping. Default is 256.
-*openSecondary - this defines on witch side the Drawer will open so the BodyContainer should also have the same value for this property. Default is false.
-*breackPoint - ths defines on witch size of the window the Drawer will be closed (small windows) or open and docked (large windows). Default is 'medium'. You can add custom break points to the `redux-responsive` implementation and change the breackPoint for the ResponsiveDrawer. More about that you can find [here](https://github.com/AlecAivazis/redux-responsive#using-custom-breakpoints)
+* width - if the `width of the draver is set to a specific value the `width` of the BodyContainer should be set to the same to avoid overlaping. Default is 256.
+* openSecondary - this defines on witch side the Drawer will open so the BodyContainer should also have the same value for this property. Default is false.
+* breackPoint - ths defines on witch size of the window the Drawer will be closed (small windows) or open and docked (large windows). Default is 'medium'. You can add custom break points to the `redux-responsive` implementation and change the breackPoint for the ResponsiveDrawer. More about that you can find [here](https://github.com/AlecAivazis/redux-responsive#using-custom-breakpoints)
 
 All this properties are **optional**.
 
@@ -209,7 +209,7 @@ Every help no mather if it is a kritik, suggestion or pull request is welkome :)
 [build]: https://travis-ci.org/TarikHuber/material-ui-responsive-drawer?branch=master
 
 [npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.com/package/material-ui-responsive-drawer
+[npm]: https://www.npmjs.org/package/material-ui-responsive-drawer
 
 [coveralls-badge]: https://img.shields.io/coveralls/TarikHuber/material-ui-responsive-drawer/master.png?style=flat-square
 [coveralls]: https://coveralls.io/github/TarikHuber/material-ui-responsive-drawer?branch=master
