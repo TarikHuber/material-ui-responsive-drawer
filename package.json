@@ -1,6 +1,6 @@
 {
   "name": "material-ui-responsive-drawer",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "React-Redux Component that uses Material-UI",
   "main": "lib/index.js",
   "module": "es/index.js",
