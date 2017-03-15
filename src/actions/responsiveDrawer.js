@@ -1,32 +1,31 @@
-export const TOGGLE_DRAWER_OPEN = 'TOGGLE_DRAWER_OPEN';
-export const TOGGLE_DRAWER_DOCK = 'TOGGLE_DRAWER_DOCK';
-export const SET_DRAWER_OPEN = 'SET_DRAWER_OPEN';
-export const SET_RESPONSIVE = 'SET_RESPONSIVE';
+export const RESPONSIVE_DRAWER_TOGGLE_DRAWER_OPEN = 'RESPONSIVE_DRAWER_TOGGLE_DRAWER_OPEN';
+export const RESPONSIVE_DRAWER_TOGGLE_DRAWER_DOCK = 'RESPONSIVE_DRAWER_TOGGLE_DRAWER_DOCK';
+export const RESPONSIVE_DRAWER_SET_DRAWER_OPEN = 'RESPONSIVE_DRAWER_SET_DRAWER_OPEN';
+export const RESPONSIVE_DRAWER_SET_RESPONSIVE = 'RESPONSIVE_DRAWER_SET_RESPONSIVE';
 
 export function toggleDrawerOpen() {
-
   return {
-    type: TOGGLE_DRAWER_OPEN,
+    type: RESPONSIVE_DRAWER_TOGGLE_DRAWER_OPEN,
   };
 }
 
 export function toggleDrawerDock() {
   return {
-    type: TOGGLE_DRAWER_DOCK,
+    type: RESPONSIVE_DRAWER_TOGGLE_DRAWER_DOCK,
   };
 }
 
 export function setDrawerOpen(open) {
   return {
-    type: SET_DRAWER_OPEN,
-    open: open,
+    type: RESPONSIVE_DRAWER_SET_DRAWER_OPEN,
+    open,
   };
 }
 
 
 export function setResponsive(responsive) {
   return {
-    type: SET_RESPONSIVE,
-    responsive: responsive,
+    type: RESPONSIVE_DRAWER_SET_RESPONSIVE,
+    responsive,
   };
 }

@@ -2,9 +2,9 @@ import expect from 'expect'
 import React from 'react'
 import {render, unmountComponentAtNode} from 'react-dom'
 
-import Component from 'src/'
+import {ResponsiveDrawer} from 'src/'
 
-describe('Component', () => {
+describe('ResponsiveDrawer', () => {
   let node
 
   beforeEach(() => {
@@ -15,9 +15,9 @@ describe('Component', () => {
     unmountComponentAtNode(node)
   })
 
-  it('displays a welcome message', () => {
-    render(<Component/>, node, () => {
-      expect(node.innerHTML).toContain('Welcome to React components')
+  it('contains drawer', () => {
+    render(<ResponsiveDrawer/>, node, () => {
+      expect(node.innerHTML).toContain('Drawer')
     })
   })
 })

@@ -1,35 +1,28 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { toggleDrawerOpen } from './actions/responsiveDrawer';
-import { Drawer } from 'material-ui';
+import Drawer  from 'material-ui/Drawer';
+import isResponsiveAndOverBreackPoint from './utils/drawerHelper.js';
 
 class ResponsiveDrawer extends Component {
 
   render() {
-    const { browser, responsiveDrawer, breackPoint, toggleDrawerOpen} = this.props
-    const props=this.props;
-    const docked=browser.greaterThan[breackPoint] && responsiveDrawer.responsive;
+    const { browser, responsiveDrawer, breackPoint, toggleDrawerOpen, children} = this.props
 
-    const childrenWithProps = React.Children.map(this.props.children,
-      (child) => React.cloneElement(child, {
-        docked: docked
-      })
-    );
+    const props=this.props;
+    const open= isResponsiveAndOverBreackPoint(browser, responsiveDrawer, breackPoint);
 
     const drawerP = {
-      docked: docked,
-      open:docked?docked:responsiveDrawer.open,
+      docked: open?true:responsiveDrawer.docked,
+      open: open?open:responsiveDrawer.open,
       onRequestChange: toggleDrawerOpen,
       ...props
-
     };
 
     return (
-
       <Drawer {...drawerP} >
-        {childrenWithProps}
+        {children}
       </Drawer>
-
     );
 
   }
@@ -39,7 +32,7 @@ ResponsiveDrawer.propTypes = {
   toggleDrawerOpen: PropTypes.func.isRequired,
   responsiveDrawer: PropTypes.object.isRequired,
   browser: PropTypes.object.isRequired,
-  breackPoint: PropTypes.string.isRequired,
+  breackPoint: PropTypes.string,
 };
 
 const mapStateToProps = (state) => {

@@ -1,36 +1,38 @@
 import{
-	SET_DRAWER_OPEN,
-	TOGGLE_DRAWER_OPEN,
-	TOGGLE_DRAWER_DOCK,
-	SET_RESPONSIVE
+	RESPONSIVE_DRAWER_SET_DRAWER_OPEN,
+	RESPONSIVE_DRAWER_TOGGLE_DRAWER_OPEN,
+	RESPONSIVE_DRAWER_TOGGLE_DRAWER_DOCK,
+	RESPONSIVE_DRAWER_SET_RESPONSIVE
 } from '../actions/responsiveDrawer';
 
 const initialState = {
-	docked: true,
+	docked: false,
 	responsive: true,
 	open: false,
 }
 
 const responsiveDrawer = (state = initialState, action) => {
 	switch (action.type) {
-		case TOGGLE_DRAWER_OPEN:
+
+		case RESPONSIVE_DRAWER_TOGGLE_DRAWER_OPEN:
 		return {
 			...state,
 			open: !state.open
 		};
-		case TOGGLE_DRAWER_DOCK:
+
+		case RESPONSIVE_DRAWER_TOGGLE_DRAWER_DOCK:
 		return {
 			...state,
 			docked: !state.docked
 		};
 
-		case SET_DRAWER_OPEN:
+		case RESPONSIVE_DRAWER_SET_DRAWER_OPEN:
 		return {
 			...state,
 			open: action.open
 		};
 
-		case SET_RESPONSIVE:
+		case RESPONSIVE_DRAWER_SET_RESPONSIVE:
 		return {
 			...state,
 			responsive: action.responsive
