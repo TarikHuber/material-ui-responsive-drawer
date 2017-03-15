@@ -15,10 +15,10 @@ class BodyContainer extends Component {
 
     const styles={
       docked_left: {
-        marginLeft: setWidth?drawerWidth:undefined,
+        paddingLeft: setWidth?drawerWidth:undefined,
       },
       docked_right: {
-        marginRight: setWidth?drawerWidth:undefined,
+        paddingRight: setWidth?drawerWidth:undefined,
       }
     }
 

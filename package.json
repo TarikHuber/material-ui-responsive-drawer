@@ -1,6 +1,6 @@
 {
   "name": "material-ui-responsive-drawer",
-  "version": "1.0.9",
+  "version": "1.0.92",
   "description": "React-Redux Component that uses Material-UI",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -18,15 +18,14 @@
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server"
   },
-  "dependencies": {
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "15.x",
     "material-ui": "^0.17.1",
     "react-redux": "^5.0.3",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
     "redux-responsive": "^4.1.1"
-  },
-  "peerDependencies": {
-    "react": "15.x"
   },
   "devDependencies": {
     "nwb": "0.15.x",
