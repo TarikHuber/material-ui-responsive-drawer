@@ -3,7 +3,7 @@ import {
   ResponsiveDrawer,
   BodyContainer,
   toggleDrawerOpen,
-  toggleDrawerDock, 
+  toggleDrawerDock,
   setResponsive
 } from '../../src/index.js'
 import RaisedButton from 'material-ui/RaisedButton';
@@ -42,7 +42,7 @@ class App extends Component {
 
       <div>
         <div>
-          <ResponsiveDrawer>
+          <ResponsiveDrawer openSecondary={false}>
             <div style={styles.drawer_container}>
               <div style={styles.drawer_header_container}>
                 <h1 style={styles.drawer_header}>Drawer</h1>
@@ -54,8 +54,8 @@ class App extends Component {
               </div>
             </div>
           </ResponsiveDrawer>
-          <BodyContainer>
-            <div>
+          <BodyContainer openSecondary={false}>
+            <div style={{margin:'10px'}}>
               <h1 style={styles.body_header}>Body</h1>
               <RaisedButton
                 label={responsiveDrawer.open?"Close drawer":"Open drawer"}
