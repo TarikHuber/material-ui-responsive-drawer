@@ -1,12 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import {
   ResponsiveDrawer,
+  ResponsiveAppBar,
   BodyContainer,
   toggleDrawerOpen,
   toggleDrawerDock,
   setResponsive
 } from '../../src/index.js'
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import Toggle from 'material-ui/Toggle';
 import {connect} from 'react-redux';
 
@@ -55,6 +57,11 @@ class App extends Component {
             </div>
           </ResponsiveDrawer>
           <BodyContainer openSecondary={false}>
+            <ResponsiveAppBar
+              title={'Responsive Material-UI Drawer DEMO'}
+              onLeftIconButtonTouchTap={toggleDrawerOpen}
+              iconElementRight={<FlatButton label="Demo" />}
+            />
             <div style={{margin:'10px'}}>
               <h1 style={styles.body_header}>Body</h1>
               <RaisedButton
@@ -88,7 +95,6 @@ App.propTypes = {
   toggleDrawerOpen: PropTypes.func.isRequired,
   toggleDrawerDock: PropTypes.func.isRequired,
   setResponsive: PropTypes.func.isRequired,
-
 };
 
 const mapStateToProps = (state) => {
