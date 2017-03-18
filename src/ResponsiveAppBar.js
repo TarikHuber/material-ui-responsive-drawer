@@ -43,6 +43,7 @@ class ResponsiveAppBar extends Component {
     }
 
     delete props['style'];
+    delete props['showMenuIconButton'];
 
     const appBarProps = {
       style: drawerOnRight?styles.docked_right:styles.docked_left,
