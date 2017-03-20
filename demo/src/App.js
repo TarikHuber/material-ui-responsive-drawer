@@ -59,8 +59,6 @@ class App extends Component {
           <BodyContainer openSecondary={false}>
             <ResponsiveAppBar
               title={'Responsive Material-UI Drawer DEMO'}
-              showMenuIconButton={undefined}
-              onLeftIconButtonTouchTap={toggleDrawerOpen}
               iconElementRight={<FlatButton label="Demo" />}
             />
             <div style={{margin:'10px'}}>

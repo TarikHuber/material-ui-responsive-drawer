@@ -16,7 +16,9 @@ class ResponsiveAppBar extends Component {
       width,
       openSecondary,
       style,
-      showMenuIconButton
+      showMenuIconButton,
+      onLeftIconButtonTouchTap,
+      toggleDrawerOpen
     } = this.props
     const props={...(this.props)};
     const setWidth= isResponsiveAndOverBreackPoint(browser, responsiveDrawer, breackPoint);
@@ -44,16 +46,19 @@ class ResponsiveAppBar extends Component {
 
     delete props['style'];
     delete props['showMenuIconButton'];
+    delete props['onLeftIconButtonTouchTap'];
 
     const appBarProps = {
       style: drawerOnRight?styles.docked_right:styles.docked_left,
       showMenuIconButton: showMenuIconButton!==undefined?showMenuIconButton:!setWidth,
+      onLeftIconButtonTouchTap: onLeftIconButtonTouchTap!==undefined?onLeftIconButtonTouchTap:toggleDrawerOpen,
       ...props
     };
 
     delete appBarProps['browser'];
     delete appBarProps['responsiveDrawer'];
     delete appBarProps['dispatch'];
+    delete appBarProps['toggleDrawerOpen'];
 
     return (
 
@@ -69,11 +74,13 @@ class ResponsiveAppBar extends Component {
 ResponsiveAppBar.propTypes = {
   responsiveDrawer: PropTypes.object.isRequired,
   browser: PropTypes.object.isRequired,
+  toggleDrawerOpen: PropTypes.func.isRequired,
   style: PropTypes.object,
   breackPoint: PropTypes.string,
   width: PropTypes.number,
   openSecondary: PropTypes.bool,
   showMenuIconButton: PropTypes.bool,
+  onLeftIconButtonTouchTap: PropTypes.func,
 };
 
 const mapStateToProps = (state) => {
@@ -84,6 +91,16 @@ const mapStateToProps = (state) => {
   };
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggleDrawerOpen: () => {
+      dispatch(toggleDrawerOpen());
+    },
+
+  }
+};
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(ResponsiveAppBar);
