@@ -19,6 +19,8 @@
 React-Redux Component that uses [Material-UI](http://www.material-ui.com/) to create a responsive Drawer.
 Some properties of the Drawer can be changed using actions from the module.
 
+You can try out the [DEMO](https://tarikhuber.github.io/material-ui-responsive-drawer/).
+
 ## Installation
 
 There are two types of using this project. You can clone the repository form GitHub or use it directly as npm module in you own react-redux application. Of course the second one is the prefered because it is made for shared. We will show both of the installation types.
