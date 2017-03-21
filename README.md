@@ -4,77 +4,41 @@
 
 - [Description](#description)
 - [Installation](#instalaltion)
-  - [Clone repository](#clone-repository)
-  - [Install as npm module](#install-as-npm-module)
 - [Usage](#usage)
-  - [As repository clone](#as-repository-clone)
-  - [As npm module](#as-npm-module)
     - [Preparation](#preparation)
+        -[Material-UI](#material-ui)
+        -[Redux responsive](#redux-responsive)
+        -[Reducers](#reducers)
     - [Examples](#examples)
-- [Contibuting](#contibuting)
+- [Contributing](#contributing)
 
 
 ## Description
 
-React-Redux Component that uses [Material-UI](http://www.material-ui.com/) to create a responsive Drawer.
-Some properties of the Drawer can be changed using actions from the module.
+Material-UI responsive Drawer is a React-Redux component that uses [Material-UI](http://www.material-ui.com/) to create a responsive Drawer.
 
-You can try out the [DEMO](https://tarikhuber.github.io/material-ui-responsive-drawer/).
+You can try it out the [DEMO](https://tarikhuber.github.io/material-ui-responsive-drawer/).
 
 ## Installation
 
-There are two types of using this project. You can clone the repository form GitHub or use it directly as npm module in you own react-redux application. Of course the second one is the prefered because it is made for shared. We will show both of the installation types.
-
-### Clone repository
-
-If you want to install the project to make commits or to see the demo you should run the following command:
+This project can be istalled as npm module using following command:
 
 ```bash
-git clone https://github.com/TarikHuber/material-ui-responsive-drawer your_project_name
+npm i -S material-ui-responsive-drawer
 ```
-
-You can change the "your_project_name" to any name you want.
-
-### Install as npm module
-
-This project should be used as npm module in your application. To install it run the following command:
-
-```bash
-npm i material-ui-responsive-drawer
-```
-
-The module should be installed after that and you should be ready to use it.
-
-
 
 ## Usage
 
-### As repository clone
 
-If you have cloned the project the first thing you have to do is to install the npm dependencies by runing following command:
+### Preparation
 
-```bash
-npm install
-```
+#### Material-UI
 
-After that you can run a second command to run the demo application:
+For this project components to work in your application after the npm installetion you have to be shure that everithing is correctly setup for Material-UI to work. You can find more about that [here](https://github.com/callemall/material-ui#installation).
 
-```bash
-npm start
-```
+#### Redux responsive
 
-The demo application should now be awaylable on `http://localhost:3000/`
-
-More about the possible usage ofthe project you can find [here](https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md).
-
-
-### As npm module
-
-#### Preparation
-
-If you want to use the project as npm module you'll have more work to do.
-
-We need to add the `responsiveStoreEnhancer` from `redux-responsive` into our store:
+We also need to add the `responsiveStoreEnhancer` from `redux-responsive` into our store:
 
 ```js
 
@@ -85,31 +49,7 @@ const store = createStore(reducers, responsiveStoreEnhancer);
 
 You can find more about the `redux-responsive` project [here](https://github.com/AlecAivazis/redux-responsive).
 
-I asume that you are already using `material-ui`. But if not you have to setup your project for compnents from taht project with adding the `MuiThemeProvider` and setting up the `TapEventPlugin`. For example (thsi code is from the dmeo in this project):
-
-```js
-
-import {render} from 'react-dom'
-import React  from 'react';
-import App from './App.js'
-import { Provider } from 'react-redux';
-import reducers from './reducers';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {responsiveStoreEnhancer} from 'redux-responsive';
-import { createStore, compose } from 'redux';
-const store = createStore(reducers, responsiveStoreEnhancer);
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
-
-render(
-  <Provider store={store}>
-    <MuiThemeProvider>
-      <App/>
-    </MuiThemeProvider>
-  </Provider>
-  , document.querySelector('#app'))
-
-```
+#### Reducers
 
 No mather where you store your reducers the `ResponsiveDrawer` needs access to a specific reducer and hes state. For that we add to our reducers `index.js` file where we compine all our reducers the following two reduces:
 
@@ -128,17 +68,17 @@ export default reducers;
 
 ```
 
-I would say "that's all you have to do" ;)
+That are the point we have to do before using this module in our application.
 
 
-#### Examples
+### Examples
 
 The module contains of three main parts:
-* ResponsiveDrawer the responsive Drawer
-* BodyContainer the "responsive" body that is adjusting hes margins to not be hidden behind the drawer
-* ResponsiveAppBar the "responsive" AppBar that works with the ResponsiveDrawer together
+* **ResponsiveDrawer** the responsive Drawer
+* **BodyContainer** the responsive body that is adjusting hes position acording to the drawer
+* **ResponsiveAppBar** the responsive AppBar that works with the ResponsiveDrawer together
 
-Both can be imported like this:
+All can be imported like this:
 
 ```js
 
@@ -150,7 +90,7 @@ import {
 
 ```
 
-All of them are just containers in witch you can put all your other application componnets:
+All of them are just containers in witch you can put all your other application components:
 
 ```js
 
@@ -177,9 +117,9 @@ The ResponsiveDrawer has the same properties as the [Material-UI Drawer](http://
 The ResponsiveAppBar has the same properties as the [Material-UI AppBar](http://www.material-ui.com/#/components/app-bar).
 
 There are some properties that shuld always be the same in this three components:
-* width - if the `width of the draver is set to a specific value the `width` of the BodyContainer should be set to the same to avoid overlaping. Default is 256.
-* openSecondary - this defines on witch side the Drawer will open so the BodyContainer should also have the same value for this property. Default is false.
-* breackPoint - ths defines on witch size of the window the Drawer will be closed (small windows) or open and docked (large windows). Default is 'medium'. You can add custom break points to the `redux-responsive` implementation and change the breackPoint for the ResponsiveDrawer. More about that you can find [here](https://github.com/AlecAivazis/redux-responsive#using-custom-breakpoints)
+* **width** - if the width of the draver is set to a specific value the width of the BodyContainer should be set to the same to avoid overlaping. Default is 256.
+* **openSecondary** - defines on witch side the Drawer will open so the BodyContainer should also have the same value for this property. Default is false.
+* **breackPoint** - defines on witch size of the window the Drawer will be closed (small windows) or open and docked (large windows). Default is 'medium'. You can add custom break points to the `redux-responsive` implementation and change the breackPoint for the ResponsiveDrawer. More about that you can find [here](https://github.com/AlecAivazis/redux-responsive#using-custom-breakpoints)
 
 All this properties are **optional**.
 
