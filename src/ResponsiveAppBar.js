@@ -18,7 +18,8 @@ class ResponsiveAppBar extends Component {
       style,
       showMenuIconButton,
       onLeftIconButtonTouchTap,
-      toggleDrawerOpen
+      toggleDrawerOpen,
+      ...rest
     } = this.props
     const props={...(this.props)};
     const setWidth= isResponsiveAndOverBreackPoint(browser, responsiveDrawer, breackPoint);
@@ -44,21 +45,13 @@ class ResponsiveAppBar extends Component {
       }
     }
 
-    delete props['style'];
-    delete props['showMenuIconButton'];
-    delete props['onLeftIconButtonTouchTap'];
-
     const appBarProps = {
+      width,
       style: drawerOnRight?styles.docked_right:styles.docked_left,
       showMenuIconButton: showMenuIconButton!==undefined?showMenuIconButton:!setWidth,
       onLeftIconButtonTouchTap: onLeftIconButtonTouchTap!==undefined?onLeftIconButtonTouchTap:toggleDrawerOpen,
-      ...props
+      ...rest
     };
-
-    delete appBarProps['browser'];
-    delete appBarProps['responsiveDrawer'];
-    delete appBarProps['dispatch'];
-    delete appBarProps['toggleDrawerOpen'];
 
     return (
 
