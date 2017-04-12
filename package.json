@@ -1,6 +1,6 @@
 {
   "name": "material-ui-responsive-drawer",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "description": "React-Redux Component that uses Material-UI",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -23,6 +23,7 @@
   "peerDependencies": {
     "react": "15.x",
     "material-ui": "^0.17.1",
+    "prop-types": "^15.5.7",
     "react-redux": "^5.0.3",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
@@ -30,10 +31,11 @@
   },
   "devDependencies": {
     "gh-pages": "^0.12.0",
+    "material-ui": "^0.17.1",
     "nwb": "0.15.x",
+    "prop-types": "^15.5.7",
     "react": "^15.x",
     "react-dom": "^15.4.2",
-    "material-ui": "^0.17.1",
     "react-redux": "^5.0.3",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",

@@ -41,7 +41,13 @@ const styles={
 class App extends Component {
 
   render() {
-    const { toggleDrawerOpen, browser, responsiveDrawer, toggleDrawerDock, setResponsive} = this.props
+    const {
+      toggleDrawerOpen,
+      browser,
+      responsiveDrawer,
+      toggleDrawerDock,
+      setResponsive
+    } = this.props
 
     return (
 
@@ -129,7 +135,7 @@ const mapDispatchToProps = (dispatch) => {
     },
     setResponsive: (isResponsive) => {
       dispatch(setResponsive(isResponsive));
-    },
+    }
   }
 };
 

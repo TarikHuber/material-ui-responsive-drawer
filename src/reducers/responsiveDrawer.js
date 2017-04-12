@@ -9,6 +9,7 @@ const initialState = {
 	docked: false,
 	responsive: true,
 	open: false,
+	searching: false,
 }
 
 const responsiveDrawer = (state = initialState, action) => {
