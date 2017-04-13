@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toggleDrawerOpen } from './actions/responsiveDrawer';
-import muiThemeable from 'material-ui/styles/muiThemeable';
 import isResponsiveAndOverBreackPoint from './utils/drawerHelper.js';
 import AppBar from 'material-ui/AppBar';
 
