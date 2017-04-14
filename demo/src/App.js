@@ -60,6 +60,7 @@ class App extends Component {
               <div style={styles.drawer_header_container}>
                 <h1 style={styles.drawer_header}>Drawer</h1>
                 <Button
+                  raised
                   primary
                   onTouchTap={toggleDrawerOpen}>
                   {responsiveDrawer.open?"Close drawer":"Open drawer"}
@@ -75,6 +76,7 @@ class App extends Component {
             <div style={{margin:20, marginTop: 70}}>
               <h1 style={styles.body_header}>Body</h1>
               <Button
+                raised
                 primary
                 onTouchTap={toggleDrawerOpen}>
                 {responsiveDrawer.open?"Close drawer":"Open drawer"}
