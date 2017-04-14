@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { toggleDrawerOpen } from './actions/responsiveDrawer';
 import isResponsiveAndOverBreackPoint from './utils/drawerHelper.js';
 import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import IconButton from 'material-ui/IconButton';
+import MenuIcon from 'material-ui-icons/Menu';
 
 class ResponsiveAppBar extends Component {
 
@@ -48,15 +51,25 @@ class ResponsiveAppBar extends Component {
     const appBarProps = {
       width,
       style: drawerOnRight?styles.docked_right:styles.docked_left,
-      showMenuIconButton: showMenuIconButton!==undefined?showMenuIconButton:!setWidth,
-      onLeftIconButtonTouchTap: onLeftIconButtonTouchTap!==undefined?onLeftIconButtonTouchTap:toggleDrawerOpen,
       ...rest
     };
+
+    const showButton = showMenuIconButton!==undefined?showMenuIconButton:!setWidth;
+    const handleButtonClick= onLeftIconButtonTouchTap!==undefined?onLeftIconButtonTouchTap:toggleDrawerOpen;
 
     return (
 
       <AppBar {...appBarProps}>
-        {children}
+        <Toolbar>
+          {showButton&&
+            <IconButton 
+              contrast
+              onTouchTap={handleButtonClick}>
+              <MenuIcon />
+            </IconButton>
+          }
+          {children}
+        </Toolbar>
       </AppBar>
 
     );

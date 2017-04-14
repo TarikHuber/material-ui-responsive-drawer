@@ -8,7 +8,7 @@ import isResponsiveAndOverBreackPoint from './utils/drawerHelper.js';
 class ResponsiveDrawer extends Component {
 
   render() {
-    const { browser, responsiveDrawer, breackPoint, toggleDrawerOpen, children} = this.props
+    const { browser, responsiveDrawer, breackPoint, toggleDrawerOpen, children, ...rest} = this.props
 
     const props=this.props;
     const open= isResponsiveAndOverBreackPoint(browser, responsiveDrawer, breackPoint);
@@ -16,12 +16,12 @@ class ResponsiveDrawer extends Component {
     const drawerP = {
       docked: open?true:responsiveDrawer.docked,
       open: open?open:responsiveDrawer.open,
-      onRequestChange: toggleDrawerOpen,
-      ...props
+      onRequestClose: toggleDrawerOpen,
+      ...rest
     };
 
     return (
-      <Drawer {...drawerP} >
+      <Drawer {...drawerP}>
         {children}
       </Drawer>
     );
