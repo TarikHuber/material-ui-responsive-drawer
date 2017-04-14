@@ -17,7 +17,7 @@
 
 Material-UI responsive Drawer is a React-Redux component that uses [Material-UI](http://www.material-ui.com/) to create a responsive Drawer.
 
-You can try it out the [DEMO](https://tarikhuber.github.io/material-ui-responsive-drawer/).
+You can try it out the [DEMO](https://material-ui-responsive-drawer.firebaseapp.com/).
 
 ## Installation
 
@@ -25,6 +25,12 @@ This project can be istalled as npm module using following command:
 
 ```bash
 npm i -S material-ui-responsive-drawer
+```
+
+To install the `next` branch use the command:
+
+```bash
+npm i -S material-ui-responsive-drawer@next
 ```
 
 ## Usage

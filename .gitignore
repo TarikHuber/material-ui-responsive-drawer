@@ -5,3 +5,9 @@
 /node_modules
 /umd
 npm-debug.log*
+
+# firebase
+/functions
+.firebaserc
+database.rules.json
+firebase.json
