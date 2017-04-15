@@ -17,17 +17,17 @@ class ResponsiveAppBar extends Component {
       breackPoint,
       children,
       width,
-      openSecondary,
       style,
       showMenuIconButton,
       onLeftIconButtonTouchTap,
       toggleDrawerOpen,
+      drawerHeight,
       ...rest
     } = this.props
     const props={...(this.props)};
     const setWidth= isResponsiveAndOverBreackPoint(browser, responsiveDrawer, breackPoint);
-    const drawerWidth=width!==undefined?width:256;
-    const drawerOnRight=openSecondary!==undefined?openSecondary:false;
+    const drawerWidth=width!==undefined?width:250;
+    const drawerOnRight=responsiveDrawer.anchor==='right';
 
     const styles={
       docked_left: {
@@ -45,12 +45,49 @@ class ResponsiveAppBar extends Component {
         top:0,
         left:0,
         ...style
+      },
+      docked_top: {
+        position: 'fixeds',
+        width: 'auto',
+        right: 0,
+        top:'auto',
+        left:0,
+        ...style
+      },
+      docked_bottom: {
+        position: 'absolute',
+        width: 'auto',
+        right: 0,
+        top:0,
+        left:0,
+        bottom: 'auto',
+        ...style
       }
     }
 
+    let dock_style=styles.docked_left;
+
+    switch (responsiveDrawer.anchor) {
+      case 'left':
+          dock_style=styles.docked_left;
+        break;
+      case 'right':
+          dock_style=styles.docked_right;
+        break;
+      case 'top':
+          dock_style=styles.docked_top;
+        break;
+      case 'bottom':
+          dock_style=styles.docked_bottom;
+        break;
+      default:
+        dock_style=styles.docked_left;
+    }
+
+
     const appBarProps = {
       width,
-      style: drawerOnRight?styles.docked_right:styles.docked_left,
+      style: dock_style,
       ...rest
     };
 
@@ -62,7 +99,7 @@ class ResponsiveAppBar extends Component {
       <AppBar {...appBarProps}>
         <Toolbar>
           {showButton&&
-            <IconButton 
+            <IconButton
               contrast
               onTouchTap={handleButtonClick}>
               <MenuIcon />
@@ -84,7 +121,6 @@ ResponsiveAppBar.propTypes = {
   style: PropTypes.object,
   breackPoint: PropTypes.string,
   width: PropTypes.number,
-  openSecondary: PropTypes.bool,
   showMenuIconButton: PropTypes.bool,
   onLeftIconButtonTouchTap: PropTypes.func,
 };

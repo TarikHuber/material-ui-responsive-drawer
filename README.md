@@ -107,10 +107,9 @@ All of them are just containers in witch you can put all your other application 
       </div>
     </ResponsiveDrawer>
     <BodyContainer>
-      <ResponsiveAppBar
-          title={'Responsive Material-UI Drawer DEMO'}
-          iconElementRight={<FlatButton label="Demo" />}
-        />
+      <ResponsiveAppBar >
+          <Text type="title" colorInherit>Title</Text>
+      </ResponsiveAppBar>
       <div>
         //all your componnets you want to have in the body part
       </div>
@@ -122,16 +121,12 @@ All of them are just containers in witch you can put all your other application 
 The ResponsiveDrawer has the same properties as the [Material-UI Drawer](http://www.material-ui.com/#/components/drawer).
 The ResponsiveAppBar has the same properties as the [Material-UI AppBar](http://www.material-ui.com/#/components/app-bar).
 
-There are some properties that shuld always be the same in this three components:
-* **width** - if the width of the draver is set to a specific value the width of the BodyContainer should be set to the same to avoid overlaping. Default is 256.
-* **openSecondary** - defines on witch side the Drawer will open so the BodyContainer should also have the same value for this property. Default is false.
-* **breackPoint** - defines on witch size of the window the Drawer will be closed (small windows) or open and docked (large windows). Default is 'medium'. You can add custom break points to the `redux-responsive` implementation and change the breackPoint for the ResponsiveDrawer. More about that you can find [here](https://github.com/AlecAivazis/redux-responsive#using-custom-breakpoints)
-
-All this properties are **optional**.
+There is one property that shuld always be the same in this three components:
+* **breackPoint** - optional - defines on witch size of the window the Drawer will be closed (small windows) or open and docked (large windows). Default is 'medium'. You can add custom break points to the `redux-responsive` implementation and change the breackPoint for the ResponsiveDrawer. More about that you can find [here](https://github.com/AlecAivazis/redux-responsive#using-custom-breakpoints)
 
 To use the actions for changing the drawer properties we will need some more code. For example we can change the `responsive` state of the drawer by calling the action `setResponsive` that needs a boolean as parameter witch defines if the drawer is responsive or not.
 
-The actions available in this module are: `toggleDrawerOpen`, `toggleDrawerDock`, `setDrawerOpen(open)`, `setResponsive(responsive)`.
+The actions available in this module are: `toggleDrawerOpen`, `toggleDrawerDock`, `setDrawerOpen(open)`, `setResponsive(responsive)`, `setAnchor(anchor)`.
 
 We can import them from the module like this:
 
@@ -143,7 +138,8 @@ import {
   ResponsiveAppBar,
   toggleDrawerOpen,
   toggleDrawerDock,
-  setResponsive
+  setResponsive,
+  setAnchor
 } from 'material-ui-responsive-drawer'
 
 ```

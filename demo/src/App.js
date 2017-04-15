@@ -1,11 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   ResponsiveDrawer,
   ResponsiveAppBar,
   BodyContainer,
   toggleDrawerOpen,
   toggleDrawerDock,
-  setResponsive
+  setResponsive,
+  setAnchor
 } from '../../src/index.js'
 import {connect} from 'react-redux';
 import Icon from 'material-ui/Icon';
@@ -15,27 +17,16 @@ import Button from 'material-ui/Button';
 import { LabelSwitch } from 'material-ui/Switch';
 import Toolbar from 'material-ui/Toolbar';
 import Text from 'material-ui/Text';
+import Divider from 'material-ui/Divider';
+import DeleteIcon from 'material-ui-icons/Delete';
+import Close from 'material-ui-icons/Close';
+import { LabelRadio, RadioGroup } from 'material-ui/Radio';
+import { FormLabel, FormControl } from 'material-ui/Form';
 
 const styles={
   drawer_container:{
-    backgroundColor: 'green',
     height: '100%',
     width: 250,
-  },
-  drawer_header:{
-    margin: '0px',
-    paddingBottom: '10px'
-  },
-  drawer_header_container:{
-    padding: '10px'
-  },
-  body_header:{
-    margin: '0px',
-    padding: '10px'
-  },
-  responsive_toggler:{
-    width: 250,
-    paddingTop:15
   }
 }
 
@@ -48,7 +39,8 @@ class App extends Component {
       browser,
       responsiveDrawer,
       toggleDrawerDock,
-      setResponsive
+      setResponsive,
+      setAnchor
     } = this.props
 
     return (
@@ -57,30 +49,26 @@ class App extends Component {
         <div>
           <ResponsiveDrawer >
             <div style={styles.drawer_container}>
-              <div style={styles.drawer_header_container}>
-                <h1 style={styles.drawer_header}>Drawer</h1>
-                <Button
-                  raised
-                  primary
-                  onTouchTap={toggleDrawerOpen}>
-                  {responsiveDrawer.open?"Close drawer":"Open drawer"}
-                </Button>
-              </div>
+              <Toolbar >
+                { responsiveDrawer.open &&
+                  <IconButton onTouchTap={toggleDrawerOpen}>
+                    <Close />
+                  </IconButton>
+                }
+                <Text type="title" >
+                  Material UI
+                </Text>
+                <Divider absolute />
+              </Toolbar>
+
             </div>
           </ResponsiveDrawer>
           <BodyContainer >
-            <ResponsiveAppBar>
+            <ResponsiveAppBar >
               <Text type="title" colorInherit>Title</Text>
             </ResponsiveAppBar>
 
             <div style={{margin:20, marginTop: 70}}>
-              <h1 style={styles.body_header}>Body</h1>
-              <Button
-                raised
-                primary
-                onTouchTap={toggleDrawerOpen}>
-                {responsiveDrawer.open?"Close drawer":"Open drawer"}
-              </Button><br/>
               <LabelSwitch
                 label={responsiveDrawer.responsive?"Disable responsive":"Enable responsive"}
                 checked={responsiveDrawer.responsive}
@@ -90,45 +78,63 @@ class App extends Component {
                 label={responsiveDrawer.docked?"Disable docked":"Enable docked"}
                 checked={responsiveDrawer.docked}
                 onChange={toggleDrawerDock}
-              />
-            </div>
-          </BodyContainer>
+              /><br/>
+
+              <FormControl >
+                <FormLabel>Anchor</FormLabel>
+                <RadioGroup
+                  aria-label="Anchor"
+                  name="anchor"
+                  selectedValue={responsiveDrawer.anchor}
+                  onChange={(event, value)=>{setAnchor(value);}}
+                  >
+                    <LabelRadio label="Left" value="left" />
+                    <LabelRadio label="Right" value="right" />
+                    <LabelRadio label="Top" value="top" />
+                    <LabelRadio label="Bottom" value="bottom" />
+                  </RadioGroup>
+                </FormControl>
+              </div>
+            </BodyContainer>
+          </div>
         </div>
-      </div>
-    );
-  }
-}
-
-App.propTypes = {
-  toggleDrawerOpen: PropTypes.func.isRequired,
-  toggleDrawerDock: PropTypes.func.isRequired,
-  setResponsive: PropTypes.func.isRequired,
-};
-
-const mapStateToProps = (state) => {
-  const {  browser, responsiveDrawer } = state;
-  return {
-    browser,
-    responsiveDrawer
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-
-  return {
-    toggleDrawerOpen: () => {
-      dispatch(toggleDrawerOpen());
-    },
-    toggleDrawerDock: () => {
-      dispatch(toggleDrawerDock());
-    },
-    setResponsive: (isResponsive) => {
-      dispatch(setResponsive(isResponsive));
+      );
     }
   }
-};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+  App.propTypes = {
+    toggleDrawerOpen: PropTypes.func.isRequired,
+    toggleDrawerDock: PropTypes.func.isRequired,
+    setResponsive: PropTypes.func.isRequired,
+  };
+
+  const mapStateToProps = (state) => {
+    const {  browser, responsiveDrawer } = state;
+    return {
+      browser,
+      responsiveDrawer
+    };
+  };
+
+  const mapDispatchToProps = (dispatch) => {
+
+    return {
+      toggleDrawerOpen: () => {
+        dispatch(toggleDrawerOpen());
+      },
+      toggleDrawerDock: () => {
+        dispatch(toggleDrawerDock());
+      },
+      setResponsive: (isResponsive) => {
+        dispatch(setResponsive(isResponsive));
+      },
+      setAnchor: (anchor) => {
+        dispatch(setAnchor(anchor));
+      }
+    }
+  };
+
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App);

@@ -2,6 +2,7 @@ export const RESPONSIVE_DRAWER_TOGGLE_DRAWER_OPEN = 'RESPONSIVE_DRAWER_TOGGLE_DR
 export const RESPONSIVE_DRAWER_TOGGLE_DRAWER_DOCK = 'RESPONSIVE_DRAWER_TOGGLE_DRAWER_DOCK';
 export const RESPONSIVE_DRAWER_SET_DRAWER_OPEN = 'RESPONSIVE_DRAWER_SET_DRAWER_OPEN';
 export const RESPONSIVE_DRAWER_SET_RESPONSIVE = 'RESPONSIVE_DRAWER_SET_RESPONSIVE';
+export const RESPONSIVE_DRAWER_SET_ANCHOR = 'RESPONSIVE_DRAWER_SET_ANCHOR';
 
 export function toggleDrawerOpen() {
   return {
@@ -27,5 +28,12 @@ export function setResponsive(responsive) {
   return {
     type: RESPONSIVE_DRAWER_SET_RESPONSIVE,
     responsive,
+  };
+}
+
+export function setAnchor(anchor) {
+  return {
+    type: RESPONSIVE_DRAWER_SET_ANCHOR,
+    anchor,
   };
 }

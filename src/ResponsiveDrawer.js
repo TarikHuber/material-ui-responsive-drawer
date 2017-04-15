@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { toggleDrawerOpen } from './actions/responsiveDrawer';
+import { toggleDrawerOpen, setAnchor } from './actions/responsiveDrawer';
 import Drawer  from 'material-ui/Drawer';
 import isResponsiveAndOverBreackPoint from './utils/drawerHelper.js';
 
 class ResponsiveDrawer extends Component {
 
+  componentWillMount(porps){
+    const {anchor, setAnchor} =this.props;
+
+    if(anchor!==undefined && anchor!=='left'){
+      setAnchor(anchor);
+    }
+
+  }
+
   render() {
-    const { browser, responsiveDrawer, breackPoint, toggleDrawerOpen, children, ...rest} = this.props
+    const { browser, responsiveDrawer, breackPoint, toggleDrawerOpen, children, anchor, ...rest} = this.props
 
     const props=this.props;
     const open= isResponsiveAndOverBreackPoint(browser, responsiveDrawer, breackPoint);
@@ -17,6 +26,7 @@ class ResponsiveDrawer extends Component {
       docked: open?true:responsiveDrawer.docked,
       open: open?open:responsiveDrawer.open,
       onRequestClose: toggleDrawerOpen,
+      anchor: responsiveDrawer.anchor,
       ...rest
     };
 
@@ -48,6 +58,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     toggleDrawerOpen: () => {
       dispatch(toggleDrawerOpen());
+    },
+    setAnchor: (anchor) => {
+      dispatch(setAnchor(anchor));
     },
 
   }

@@ -7,11 +7,10 @@ import isResponsiveAndOverBreackPoint from './utils/drawerHelper.js';
 class BodyContainer extends Component {
 
   render() {
-    const { browser, responsiveDrawer, breackPoint, children, width, openSecondary, style} = this.props
+    const { browser, responsiveDrawer, breackPoint, children, width, style, drawerHeight} = this.props
 
     const setWidth= isResponsiveAndOverBreackPoint(browser, responsiveDrawer, breackPoint);
-    const drawerWidth=width!==undefined?width:256;
-    const drawerOnRight=openSecondary!==undefined?openSecondary:false;
+    const drawerWidth=width!==undefined?width:250;
 
     const styles={
       docked_left: {
@@ -29,12 +28,48 @@ class BodyContainer extends Component {
         left:0,
         bottom: 0,
         ...style
+      },
+      docked_top: {
+        position: 'absolute',
+        width: 'auto',
+        right: 0,
+        left: 0,
+        top:setWidth?(drawerHeight!==undefined?drawerHeight:64):0,
+        ...style
+      },
+      docked_bottom: {
+        position: 'absolute',
+        width: 'auto',
+        right: 0,
+        top:0,
+        left:0,
+        bottom: setWidth?drawerHeight:0,
+        ...style
       }
+    }
+
+    let dock_style=styles.docked_left;
+
+    switch (responsiveDrawer.anchor) {
+      case 'left':
+      dock_style=styles.docked_left;
+      break;
+      case 'right':
+      dock_style=styles.docked_right;
+      break;
+      case 'top':
+      dock_style=styles.docked_top;
+      break;
+      case 'bottom':
+      dock_style=styles.docked_bottom;
+      break;
+      default:
+      dock_style=styles.docked_left;
     }
 
     return (
 
-      <div style={drawerOnRight?styles.docked_right:styles.docked_left}>
+      <div style={dock_style}>
         {children}
       </div>
 
@@ -48,8 +83,7 @@ BodyContainer.propTypes = {
   browser: PropTypes.object.isRequired,
   style: PropTypes.object,
   breackPoint: PropTypes.string,
-  width: PropTypes.number,
-  openSecondary: PropTypes.bool,
+  width: PropTypes.number
 };
 
 const mapStateToProps = (state) => {

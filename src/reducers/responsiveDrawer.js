@@ -2,7 +2,8 @@ import{
 	RESPONSIVE_DRAWER_SET_DRAWER_OPEN,
 	RESPONSIVE_DRAWER_TOGGLE_DRAWER_OPEN,
 	RESPONSIVE_DRAWER_TOGGLE_DRAWER_DOCK,
-	RESPONSIVE_DRAWER_SET_RESPONSIVE
+	RESPONSIVE_DRAWER_SET_RESPONSIVE,
+	RESPONSIVE_DRAWER_SET_ANCHOR
 } from '../actions/responsiveDrawer';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
 	responsive: true,
 	open: false,
 	searching: false,
+	anchor: 'left'
 }
 
 const responsiveDrawer = (state = initialState, action) => {
@@ -37,6 +39,12 @@ const responsiveDrawer = (state = initialState, action) => {
 		return {
 			...state,
 			responsive: action.responsive
+		};
+
+		case RESPONSIVE_DRAWER_SET_ANCHOR:
+		return {
+			...state,
+			anchor: action.anchor
 		};
 
 		default:
