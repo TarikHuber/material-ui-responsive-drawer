@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toggleDrawerOpen } from './actions/responsiveDrawer';
-import isResponsiveAndOverBreackPoint from './utils/drawerHelper.js';
+import isResponsiveAndOverBreakPoint from './utils/drawerHelper.js';
 
 class BodyContainer extends Component {
 
   render() {
-    const { browser, responsiveDrawer, breackPoint, children, width, openSecondary, style} = this.props
+    const { browser, responsiveDrawer, breakPoint, children, width, openSecondary, style} = this.props
 
-    const setWidth= isResponsiveAndOverBreackPoint(browser, responsiveDrawer, breackPoint);
+    const setWidth= isResponsiveAndOverBreakPoint(browser, responsiveDrawer, breakPoint);
     const drawerWidth=width!==undefined?width:256;
     const drawerOnRight=openSecondary!==undefined?openSecondary:false;
 
@@ -47,7 +47,7 @@ BodyContainer.propTypes = {
   responsiveDrawer: PropTypes.object.isRequired,
   browser: PropTypes.object.isRequired,
   style: PropTypes.object,
-  breackPoint: PropTypes.string,
+  breakPoint: PropTypes.string,
   width: PropTypes.number,
   openSecondary: PropTypes.bool,
 };
