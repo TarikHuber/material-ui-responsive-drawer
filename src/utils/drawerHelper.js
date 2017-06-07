@@ -1,5 +1,5 @@
-export const DEFAULT_BREACK_POINT = 'medium';
+export const DEFAULT_BREAK_POINT = 'medium';
 
-export default function isResponsiveAndOverBreackPoint(browser, responsiveDrawer, breackPoint){
-  return browser.greaterThan[breackPoint!==undefined?breackPoint:DEFAULT_BREACK_POINT] && responsiveDrawer.responsive;
+export default function isResponsiveAndOverBreakPoint(browser, responsiveDrawer, breakPoint){
+  return browser.greaterThan[breakPoint!==undefined?breakPoint:DEFAULT_BREAK_POINT] && responsiveDrawer.responsive;
 }
