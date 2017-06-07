@@ -3,7 +3,7 @@
 ## Table of Contents
 
 - [Description](#description)
-- [Installation](#instalaltion)
+- [Installation](#installation)
 - [Usage](#usage)
     - [Preparation](#preparation)
         -[Material-UI](#material-ui)
@@ -21,7 +21,7 @@ You can try it out the [DEMO](https://tarikhuber.github.io/material-ui-responsiv
 
 ## Installation
 
-This project can be istalled as npm module using following command:
+This project can be installed as npm module using following command:
 
 ```bash
 npm i -S material-ui-responsive-drawer
@@ -34,7 +34,7 @@ npm i -S material-ui-responsive-drawer
 
 #### Material-UI
 
-For this project components to work in your application after the npm installetion you have to be shure that everithing is correctly setup for Material-UI to work. You can find more about that [here](https://github.com/callemall/material-ui#installation).
+For this project components to work in your application after the npm installation you have to be sure that everything is correctly setup for Material-UI to work. You can find more about that [here](https://github.com/callemall/material-ui#installation).
 
 #### Redux responsive
 
@@ -51,7 +51,7 @@ You can find more about the `redux-responsive` project [here](https://github.com
 
 #### Reducers
 
-No mather where you store your reducers the `ResponsiveDrawer` needs access to a specific reducer and hes state. For that we add to our reducers `index.js` file where we compine all our reducers the following two reduces:
+No matter where you store your reducers the `ResponsiveDrawer` needs access to a specific reducer and its state. For that we add to our reducers `index.js` file where we combine all our reducers the following two reducers:
 
 ```js
 
@@ -75,7 +75,7 @@ That are the point we have to do before using this module in our application.
 
 The module contains of three main parts:
 * **ResponsiveDrawer** the responsive Drawer
-* **BodyContainer** the responsive body that is adjusting hes position acording to the drawer
+* **BodyContainer** the responsive body that is adjusting its position according to the drawer
 * **ResponsiveAppBar** the responsive AppBar that works with the ResponsiveDrawer together
 
 All can be imported like this:
@@ -97,7 +97,7 @@ All of them are just containers in witch you can put all your other application 
 <div>
     <ResponsiveDrawer>
       <div>
-        //all your componnets you want to have in the drawer part
+        //all your components you want to have in the drawer part
       </div>
     </ResponsiveDrawer>
     <BodyContainer>
@@ -106,7 +106,7 @@ All of them are just containers in witch you can put all your other application 
           iconElementRight={<FlatButton label="Demo" />}
         />
       <div>
-        //all your componnets you want to have in the body part
+        //all your components you want to have in the body part
       </div>
     </BodyContainer>
 </div>
@@ -116,10 +116,10 @@ All of them are just containers in witch you can put all your other application 
 The ResponsiveDrawer has the same properties as the [Material-UI Drawer](http://www.material-ui.com/#/components/drawer).
 The ResponsiveAppBar has the same properties as the [Material-UI AppBar](http://www.material-ui.com/#/components/app-bar).
 
-There are some properties that shuld always be the same in this three components:
-* **width** - if the width of the draver is set to a specific value the width of the BodyContainer should be set to the same to avoid overlaping. Default is 256.
+There are some properties that should always be the same in this three components:
+* **width** - if the width of the drawer is set to a specific value the width of the BodyContainer should be set to the same to avoid overlapping. Default is 256.
 * **openSecondary** - defines on witch side the Drawer will open so the BodyContainer should also have the same value for this property. Default is false.
-* **breackPoint** - defines on witch size of the window the Drawer will be closed (small windows) or open and docked (large windows). Default is 'medium'. You can add custom break points to the `redux-responsive` implementation and change the breackPoint for the ResponsiveDrawer. More about that you can find [here](https://github.com/AlecAivazis/redux-responsive#using-custom-breakpoints)
+* **breakPoint** - defines on witch size of the window the Drawer will be closed (small windows) or open and docked (large windows). Default is 'medium'. You can add custom break points to the `redux-responsive` implementation and change the breakPoint for the ResponsiveDrawer. More about that you can find [here](https://github.com/AlecAivazis/redux-responsive#using-custom-breakpoints)
 
 All this properties are **optional**.
 
@@ -147,4 +147,4 @@ An complete example with all the actions called can be found in the [App.js](htt
 
 ## Contributing
 
-Every help no mather if it is a kritik, suggestion or pull request is welkome :)
+Every help no matter if it is a critique, suggestion or pull request is welcome :)

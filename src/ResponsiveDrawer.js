@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toggleDrawerOpen } from './actions/responsiveDrawer';
 import Drawer  from 'material-ui/Drawer';
-import isResponsiveAndOverBreackPoint from './utils/drawerHelper.js';
+import isResponsiveAndOverBreakPoint from './utils/drawerHelper.js';
 
 class ResponsiveDrawer extends Component {
 
   render() {
-    const { browser, responsiveDrawer, breackPoint, toggleDrawerOpen, children} = this.props
+    const { browser, responsiveDrawer, breakPoint, toggleDrawerOpen, children} = this.props
 
     const props=this.props;
-    const open= isResponsiveAndOverBreackPoint(browser, responsiveDrawer, breackPoint);
+    const open= isResponsiveAndOverBreakPoint(browser, responsiveDrawer, breakPoint);
 
     const drawerP = {
       docked: open?true:responsiveDrawer.docked,
@@ -33,7 +33,7 @@ ResponsiveDrawer.propTypes = {
   toggleDrawerOpen: PropTypes.func.isRequired,
   responsiveDrawer: PropTypes.object.isRequired,
   browser: PropTypes.object.isRequired,
-  breackPoint: PropTypes.string,
+  breakPoint: PropTypes.string,
 };
 
 const mapStateToProps = (state) => {
