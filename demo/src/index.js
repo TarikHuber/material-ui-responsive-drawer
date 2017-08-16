@@ -7,8 +7,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {responsiveStoreEnhancer} from 'redux-responsive';
 import { createStore, compose } from 'redux';
 const store = createStore(reducers, responsiveStoreEnhancer);
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
 
 render(
   <Provider store={store}>
