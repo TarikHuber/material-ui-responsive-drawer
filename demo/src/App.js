@@ -61,7 +61,7 @@ class App extends Component {
                 <RaisedButton
                   label={responsiveDrawer.open?"Close drawer":"Open drawer"}
                   primary={true}
-                  onTouchTap={toggleDrawerOpen}
+                  onClickTap={toggleDrawerOpen}
                 />
               </div>
             </div>
@@ -87,7 +87,7 @@ class App extends Component {
               <RaisedButton
                 label={responsiveDrawer.open?"Close drawer":"Open drawer"}
                 primary={true}
-                onTouchTap={toggleDrawerOpen}
+                onClickTap={toggleDrawerOpen}
               />
               <Toggle
                 label={responsiveDrawer.responsive?"Disable responsive":"Enable responsive"}
