@@ -1,6 +1,6 @@
 {
   "name": "material-ui-responsive-drawer",
-  "version": "1.19.0",
+  "version": "1.19.1",
   "description": "React-Redux Component that uses Material-UI",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -21,7 +21,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": "15.x",
+    "react": "15.x || 16.x",
     "material-ui": "0.19.x",
     "prop-types": "15.x",
     "redux": "3.x",
@@ -33,8 +33,8 @@
     "material-ui": "0.19.x",
     "nwb": "0.15.x",
     "prop-types": "15.x",
-    "react": "15.x",
-    "react-dom": "15.x",
+    "react": "16.x",
+    "react-dom": "16.x",
     "react-redux": "5.x",
     "redux": "3.x",
     "redux-responsive": "4.x"
