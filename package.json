@@ -29,15 +29,15 @@
     "redux-responsive": "4.x"
   },
   "devDependencies": {
-    "gh-pages": "^0.12.0",
-    "material-ui": "0.19.x",
-    "nwb": "0.15.x",
-    "prop-types": "15.x",
+    "gh-pages": "^1.0.0",
+    "material-ui": "^0.19.4",
+    "nwb": "^0.19.1",
+    "prop-types": "^15.6.0",
     "react": "16.x",
     "react-dom": "16.x",
     "react-redux": "5.x",
     "redux": "3.x",
-    "redux-responsive": "4.x"
+    "redux-responsive": "^4.3.4"
   },
   "author": "Tarik Huber <huber.tarik@gmail.com> (https://github.com/TarikHuber)",
   "homepage": "https://tarikhuber.github.io/material-ui-responsive-drawer",
