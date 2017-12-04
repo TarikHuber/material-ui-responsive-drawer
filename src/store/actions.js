@@ -1,28 +1,27 @@
-import * as types from './types';
+import * as types from './types'
 
-export function toggleDrawerOpen() {
+export function toggleDrawerOpen () {
   return {
-    type: types.RESPONSIVE_DRAWER_TOGGLE_DRAWER_OPEN,
-  };
+    type: types.RESPONSIVE_DRAWER_TOGGLE_DRAWER_OPEN
+  }
 }
 
-export function toggleDrawerDock() {
+export function toggleDrawerDock () {
   return {
-    type: types.RESPONSIVE_DRAWER_TOGGLE_DRAWER_DOCK,
-  };
+    type: types.RESPONSIVE_DRAWER_TOGGLE_DRAWER_DOCK
+  }
 }
 
-export function setDrawerOpen(open) {
+export function setDrawerOpen (open) {
   return {
     type: types.RESPONSIVE_DRAWER_SET_DRAWER_OPEN,
-    open,
-  };
+    open
+  }
 }
 
-
-export function setResponsive(responsive) {
+export function setResponsive (responsive) {
   return {
     type: types.RESPONSIVE_DRAWER_SET_RESPONSIVE,
-    responsive,
-  };
+    responsive
+  }
 }

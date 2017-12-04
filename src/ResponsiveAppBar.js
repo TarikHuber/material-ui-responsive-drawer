@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { toggleDrawerOpen } from './store/actions';
-import isResponsiveAndOverBreakPoint from './store/selectors';
-import AppBar from 'material-ui/AppBar';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { toggleDrawerOpen } from './store/actions'
+import isResponsiveAndOverBreakPoint from './store/selectors'
+import AppBar from 'material-ui/AppBar'
 
 class ResponsiveAppBar extends Component {
-
-  render() {
+  render () {
     const {
       browser,
       responsiveDrawer,
@@ -17,41 +16,41 @@ class ResponsiveAppBar extends Component {
       openSecondary,
       style,
       showMenuIconButton,
-      onLeftIconButtonTouchTap,
+      onLeftIconButtonClick,
       toggleDrawerOpen,
       ...rest
     } = this.props
-    const props={...(this.props)};
-    const setWidth= isResponsiveAndOverBreakPoint(browser, responsiveDrawer, breakPoint);
-    const drawerWidth=width!==undefined?width:256;
-    const drawerOnRight=openSecondary!==undefined?openSecondary:false;
+    const props = { ...(this.props) }
+    const setWidth = isResponsiveAndOverBreakPoint(browser, responsiveDrawer, breakPoint)
+    const drawerWidth = width !== undefined ? width : 256
+    const drawerOnRight = openSecondary !== undefined ? openSecondary : false
 
-    const styles={
+    const styles = {
       docked_left: {
         position: 'fixed',
         width: 'auto',
-        left: setWidth?drawerWidth:0,
-        top:0,
+        left: setWidth ? drawerWidth : 0,
+        top: 0,
         right: 0,
         ...style
       },
       docked_right: {
         position: 'fixed',
         width: 'auto',
-        right: setWidth?drawerWidth:0,
-        top:0,
-        left:0,
+        right: setWidth ? drawerWidth : 0,
+        top: 0,
+        left: 0,
         ...style
       }
     }
 
     const appBarProps = {
       width,
-      style: drawerOnRight?styles.docked_right:styles.docked_left,
-      showMenuIconButton: showMenuIconButton!==undefined?showMenuIconButton:!setWidth,
-      onLeftIconButtonTouchTap: onLeftIconButtonTouchTap!==undefined?onLeftIconButtonTouchTap:toggleDrawerOpen,
+      style: drawerOnRight ? styles.docked_right : styles.docked_left,
+      showMenuIconButton: showMenuIconButton !== undefined ? showMenuIconButton : !setWidth,
+      onLeftIconButtonClick: onLeftIconButtonClick !== undefined ? onLeftIconButtonClick : toggleDrawerOpen,
       ...rest
-    };
+    }
 
     return (
 
@@ -59,8 +58,7 @@ class ResponsiveAppBar extends Component {
         {children}
       </AppBar>
 
-    );
-
+    )
   }
 }
 
@@ -73,27 +71,27 @@ ResponsiveAppBar.propTypes = {
   width: PropTypes.number,
   openSecondary: PropTypes.bool,
   showMenuIconButton: PropTypes.bool,
-  onLeftIconButtonTouchTap: PropTypes.func,
-};
+  onLeftIconButtonClick: PropTypes.func
+}
 
 const mapStateToProps = (state) => {
-  const {  browser, responsiveDrawer } = state;
+  const { browser, responsiveDrawer } = state
   return {
     browser,
     responsiveDrawer
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleDrawerOpen: () => {
-      dispatch(toggleDrawerOpen());
-    },
+      dispatch(toggleDrawerOpen())
+    }
 
   }
-};
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ResponsiveAppBar);
+)(ResponsiveAppBar)
