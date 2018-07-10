@@ -39,7 +39,7 @@ npm i -S material-ui-responsive-drawer
 
 #### Material-UI
 
-For this project components to work in your application after the npm installation you have to be sure that everything is correctly setup for Material-UI to work. You can find more about that [here](https://github.com/callemall/material-ui#installation).
+For the project components to work in your application after the npm installation you have to be sure that everything is correctly setup for Material-UI to work. You can find more about that [here](https://github.com/callemall/material-ui#installation).
 
 #### Redux responsive
 
@@ -73,12 +73,12 @@ export default reducers;
 
 ```
 
-That are the point we have to do before using this module in our application.
+We are now at the point where we can use this module in our application.
 
 
 ### Examples
 
-The module contains of three main parts:
+The module contains three main parts:
 * **ResponsiveDrawer** the responsive Drawer
 * **BodyContainer** the responsive body that is adjusting its position according to the drawer
 * **ResponsiveAppBar** the responsive AppBar that works with the ResponsiveDrawer together
@@ -95,7 +95,7 @@ import {
 
 ```
 
-All of them are just containers in witch you can put all your other application components:
+All of them are just containers in which you can put all your other application components:
 
 ```js
 
@@ -121,14 +121,14 @@ All of them are just containers in witch you can put all your other application 
 The ResponsiveDrawer has the same properties as the [Material-UI Drawer](http://www.material-ui.com/#/components/drawer).
 The ResponsiveAppBar has the same properties as the [Material-UI AppBar](http://www.material-ui.com/#/components/app-bar).
 
-There are some properties that should always be the same in this three components:
+There are some properties that should always be the same in the three components:
 * **width** - if the width of the drawer is set to a specific value the width of the BodyContainer should be set to the same to avoid overlapping. Default is 256.
-* **openSecondary** - defines on witch side the Drawer will open so the BodyContainer should also have the same value for this property. Default is false.
-* **breakPoint** - defines on witch size of the window the Drawer will be closed (small windows) or open and docked (large windows). Default is 'medium'. You can add custom break points to the `redux-responsive` implementation and change the breakPoint for the ResponsiveDrawer. More about that you can find [here](https://github.com/AlecAivazis/redux-responsive#using-custom-breakpoints)
+* **openSecondary** - defines which side the Drawer will open from so the BodyContainer should also have the same value for this property. Default is false.
+* **breakPoint** - defines the size of the window where the Drawer will close (small windows) or open/docked (large windows). Default is 'medium'. You can add custom break points to the `redux-responsive` implementation and change the breakPoint for the ResponsiveDrawer. More about this can be found [here](https://github.com/AlecAivazis/redux-responsive#using-custom-breakpoints)
 
-All this properties are **optional**.
+All of these properties are **optional**.
 
-To use the actions for changing the drawer properties we will need some more code. For example we can change the `responsive` state of the drawer by calling the action `setResponsive` that needs a boolean as parameter witch defines if the drawer is responsive or not.
+To use the actions for changing the drawer properties we will need some more code. For example we can change the `responsive` state of the drawer by calling the action `setResponsive`, which takes a boolean as parameter and defines if the drawer is responsive or not.
 
 The actions available in this module are: `toggleDrawerOpen`, `toggleDrawerDock`, `setDrawerOpen(open)`, `setResponsive(responsive)`.
 
@@ -147,12 +147,12 @@ import {
 
 ```
 
-An complete example with all the actions called can be found in the [App.js](https://github.com/TarikHuber/material-ui-responsive-drawer/blob/master/demo/src/App.js) of the demo part of this project.
+A complete example with all actions called can be found in the [App.js](https://github.com/TarikHuber/material-ui-responsive-drawer/blob/master/demo/src/App.js) file of the demo project.
 
 
 ## Contributing
 
-Every help no matter if it is a critique, suggestion or pull request is welcome :)
+All help no matter if it is a critique, suggestion or pull request is welcome :)
 
 [travis-image]: https://travis-ci.org/TarikHuber/material-ui-responsive-drawer.svg?branch=master
 [travis-url]: https://travis-ci.org/TarikHuber/material-ui-responsive-drawer
